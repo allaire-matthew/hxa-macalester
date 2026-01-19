@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  tagline?: string;
+  quote?: string;
+  quoteAuthor?: string;
+  showCta?: boolean;
+  ctaText?: string;
+  ctaLink?: string;
+  variant?: 'home' | 'page';
+}
+
+const {
+  title,
+  subtitle,
+  tagline,
+  quote,
+  quoteAuthor,
+  showCta = false,
+  ctaText = "Get Involved",
+  ctaLink = "#contact",
+  variant = 'page'
+} = Astro.props;
+
+const isHome = variant === 'home';
+---
+
+<section class={`relative ${isHome ? 'py-16 md:py-24' : 'py-4 md:py-5'} bg-white border-b border-gray-100`}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    {tagline && (
+      <p class="subheader mb-4">{tagline}</p>
+    )}
+
+    <h1 class={`font-headline font-bold text-charcoal ${isHome ? 'text-3xl md:text-4xl lg:text-5xl' : 'text-2xl md:text-3xl lg:text-4xl'} leading-tight mb-6`}>
+      {title}
+    </h1>
+
+    {subtitle && (
+      <p class={`text-gray-600 ${isHome ? 'text-lg' : 'text-base'} max-w-2xl mx-auto leading-relaxed`}>
+        {subtitle}
+      </p>
+    )}
+
+    {quote && (
+      <blockquote class="max-w-2xl mx-auto mt-8 text-left">
+        <p class="font-headline italic text-lg text-gray-600 leading-relaxed">
+          "{quote}"
+        </p>
+        {quoteAuthor && (
+          <cite class="block mt-3 text-sm font-semibold text-charcoal not-italic">
+            — {quoteAuthor}
+          </cite>
+        )}
+      </blockquote>
+    )}
+
+    {showCta && (
+      <div class="mt-8">
+        <a
+          href={ctaLink}
+          class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors"
+        >
+          {ctaText}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>

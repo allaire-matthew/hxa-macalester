@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Enable editorial workflow for draft/review/publish stages
+publish_mode: editorial_workflow
+
+# Media files stored in public folder
+media_folder: "public/images"
+public_folder: "/images"
+
+# Site URL for previews
+site_url: https://hxamac.org
+display_url: https://hxamac.org
+
+collections:
+  # Leadership / Team Members
+  - name: "leadership"
+    label: "Leadership"
+    folder: "src/content/leadership"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Department", name: "department", widget: "string", required: false }
+      - { label: "Bio", name: "bio", widget: "text", required: false }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 10, hint: "Lower numbers appear first" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Co-Chair", value: "cochair" }
+          - { label: "Faculty Advisor", value: "advisor" }
+          - { label: "Team Member", value: "member" }
+
+  # Events
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Time", name: "time", widget: "string", required: false, hint: "e.g., 6:00 PM - 8:00 PM" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Link", name: "link", widget: "string", required: false, hint: "URL for more info or registration" }
+      - { label: "Past Event", name: "isPast", widget: "boolean", default: false }
+
+  # Resources / Reading List
+  - name: "resources"
+    label: "Resources"
+    folder: "src/content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Book", value: "book" }
+          - { label: "Article", value: "article" }
+          - { label: "Video", value: "video" }
+          - { label: "Tool", value: "tool" }
+          - { label: "External Resource", value: "external" }
+      - { label: "Order", name: "order", widget: "number", default: 10 }
+
+  # Site Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/content/settings/general.json"
+        fields:
+          - { label: "Site Title", name: "siteTitle", widget: "string", default: "HxA Macalester" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string", default: "hxa@macalester.edu" }
+          - { label: "Tagline", name: "tagline", widget: "string", default: "Great Minds Don't Always Think Alike" }
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text" }

@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* HxA Brand Colors */
+@theme {
+  /* Primary Colors (70% green / 30% purple) */
+  --color-hxa-green: #028445;
+  --color-hxa-purple: #502D89;
+
+  /* Accent Colors */
+  --color-accent-green: #00AB63;
+  --color-accent-purple: #704D9F;
+
+  /* Neutrals */
+  --color-charcoal: #242424;
+  --color-tan: #FDF8F2;
+  --color-light-purple: #EBE2F6;
+  --color-light-green: #ECF6F2;
+  --color-gray-600: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+
+  /* Typography - Think tank style */
+  --font-headline: Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans Pro", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Base styles - refined typography */
+html {
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--color-charcoal);
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.7;
+}
+
+/* Headlines - refined spacing */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* Subheaders - think tank style with small caps effect */
+.subheader {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-hxa-purple);
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Blockquotes - for the featured quote */
+blockquote {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-gray-600);
+  border-left: 3px solid var(--color-hxa-green);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+}
+
+blockquote cite {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-top: 0.75rem;
+}
+
+/* Utility classes for HxA brand */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-hxa-green) 0%, var(--color-hxa-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-hxa {
+  background: linear-gradient(135deg, var(--color-hxa-green) 0%, var(--color-hxa-purple) 100%);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-hxa-green);
+  outline-offset: 2px;
+}
+
+/* Link styles - more restrained */
+a:not(.btn):not([class*="bg-"]) {
+  color: var(--color-hxa-green);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:not(.btn):not([class*="bg-"]):hover {
+  color: var(--color-accent-green);
+}
+
+/* Button links - preserve intended colors */
+a[class*="bg-"] {
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+/* Dividers */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-gray-200);
+  margin: 2rem 0;
+}
+
+/* Section spacing */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}

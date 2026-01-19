@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="Home">
+  <Hero
+    variant="home"
+    tagline="Heterodox Academy Campus Community"
+    title="Great Minds Don't Always Think Alike"
+    subtitle="A student-faculty community at Macalester College promoting open inquiry, viewpoint diversity, and constructive disagreement."
+    quote="It's important that students can have a civil dialogue—disagree without being disagreeable—about the issues facing the country and the world."
+    quoteAuthor="Peter Fenn '70, Founding Executive Director of OpenSecrets, Macalester Trustee Emeritus"
+  />
+
+  <!-- About Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2 class="font-headline text-2xl md:text-3xl text-charcoal mb-6">About Our Chapter</h2>
+
+        <p class="text-gray-600 leading-relaxed mb-4">
+          The HxA Macalester Campus Community is part of <a href="https://heterodoxacademy.org" target="_blank" rel="noopener" class="text-hxa-green hover:text-accent-green">Heterodox Academy</a>, a nonpartisan collaborative of professors, administrators, and students committed to enhancing the quality of research and education by promoting open inquiry, viewpoint diversity, and constructive disagreement in institutions of higher learning.
+        </p>
+
+        <p class="text-gray-600 leading-relaxed">
+          Our chapter focuses on creating opportunities for students and faculty to engage across differences—hosting events that bring together diverse perspectives, providing educational resources on productive dialogue, and advocating for a campus culture where all viewpoints can be heard and debated respectfully.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer Section -->
+  <section class="py-16 md:py-20 bg-tan">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="subheader mb-2">What We Offer</p>
+        <h2 class="font-headline text-2xl md:text-3xl text-charcoal">Events, Education, and Resources</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <Card
+          icon="calendar"
+          title="Events"
+          description="Dialogue sessions, speaker events, and discussions that bring together students with different viewpoints to engage on challenging topics."
+          link="/events"
+          linkText="View events"
+        />
+        <Card
+          icon="book"
+          title="Education"
+          description="Materials and workshops on productive disagreement, understanding different perspectives, and the value of viewpoint diversity in academic settings."
+          link="/resources"
+          linkText="Explore resources"
+        />
+        <Card
+          icon="users"
+          title="Community"
+          description="A network of students and faculty committed to open inquiry. Join us to help build a campus culture where diverse ideas are welcomed."
+          link="/leadership"
+          linkText="Meet the team"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Context Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <p class="subheader mb-2">Campus Context</p>
+          <h2 class="font-headline text-2xl text-charcoal mb-4">Free Speech at Macalester</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Macalester ranks 228th out of 257 colleges in FIRE's 2026 College Free Speech Rankings. While the college has strong administrative support for free expression, there's work to be done on campus climate.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Our chapter works to help students understand and exercise their rights to free expression while building a culture where diverse viewpoints are welcomed and debated respectfully.
+          </p>
+          <a href="https://rankings.thefire.org/rank" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-medium text-hxa-green hover:text-accent-green mt-4 transition-colors">
+            View FIRE Rankings
+            <Icon name="external-link" class="w-3.5 h-3.5" />
+          </a>
+        </div>
+        <div class="bg-light-green rounded-lg p-6">
+          <h3 class="font-headline text-lg text-charcoal mb-3">Why This Matters</h3>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-green mt-2 flex-shrink-0"></span>
+              <span>Exposure to different viewpoints strengthens critical thinking</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-green mt-2 flex-shrink-0"></span>
+              <span>Learning to disagree productively is essential for democratic citizenship</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-green mt-2 flex-shrink-0"></span>
+              <span>Academic inquiry requires freedom to question and challenge ideas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-20 bg-charcoal text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl mb-4">Get Involved</h2>
+      <p class="text-gray-300 mb-8 leading-relaxed">
+        Interested in promoting open inquiry and constructive dialogue on campus? We welcome students and faculty from all backgrounds and perspectives.
+      </p>
+      <a href="mailto:hxa@macalester.edu" class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors">
+        <Icon name="mail" class="w-4 h-4" />
+        Contact Us
+      </a>
+    </div>
+  </section>
+</Layout>

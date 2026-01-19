@@ -1,0 +1,67 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  link?: string;
+  linkText?: string;
+  icon?: 'calendar' | 'book' | 'users' | 'mic' | 'target' | 'refresh' | 'message' | 'handshake' | 'external-link';
+  variant?: 'default' | 'outline' | 'minimal';
+}
+
+const {
+  title,
+  description,
+  link,
+  linkText = "Learn more",
+  icon,
+  variant = 'default'
+} = Astro.props;
+
+const variantClasses = {
+  default: 'bg-white border border-gray-200 hover:border-hxa-green/40 hover:shadow-md',
+  outline: 'bg-transparent border border-gray-200 hover:border-hxa-green',
+  minimal: 'bg-transparent'
+};
+
+const isExternal = link?.startsWith('http');
+---
+
+<div class={`rounded-lg p-6 transition-all duration-200 ${variantClasses[variant]}`}>
+  {icon && (
+    <div class="w-10 h-10 rounded-md flex items-center justify-center mb-4 bg-light-green">
+      <Icon name={icon} class="w-5 h-5 text-hxa-green" />
+    </div>
+  )}
+
+  <h3 class="font-headline font-bold text-charcoal mb-2">
+    {title}
+  </h3>
+
+  {description && (
+    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+      {description}
+    </p>
+  )}
+
+  {link && (
+    <a
+      href={link}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener" : undefined}
+      class="inline-flex items-center gap-1.5 text-sm font-medium text-hxa-green hover:text-accent-green transition-colors"
+    >
+      {linkText}
+      {isExternal ? (
+        <Icon name="external-link" class="w-3.5 h-3.5" />
+      ) : (
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      )}
+    </a>
+  )}
+
+  <slot />
+</div>

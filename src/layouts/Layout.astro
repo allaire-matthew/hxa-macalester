@@ -1,0 +1,111 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Heterodox Academy Campus Community at Macalester College - promoting open inquiry, viewpoint diversity, and constructive disagreement." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>{title} | HxA Macalester</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <a href="/" class="flex items-center gap-2 text-charcoal hover:text-hxa-green transition-colors">
+            <img src="/images/hxa-logo.svg" alt="HxA" class="h-8 w-auto" onerror="this.style.display='none'" />
+            <span class="font-headline font-bold text-lg">HxA Macalester</span>
+          </a>
+
+          <div class="hidden md:flex items-center gap-8">
+            <a href="/" class="text-sm font-medium text-charcoal hover:text-hxa-green transition-colors">Home</a>
+            <a href="/leadership" class="text-sm font-medium text-charcoal hover:text-hxa-green transition-colors">Leadership</a>
+            <a href="/events" class="text-sm font-medium text-charcoal hover:text-hxa-green transition-colors">Events</a>
+            <a href="/resources" class="text-sm font-medium text-charcoal hover:text-hxa-green transition-colors">Resources</a>
+          </div>
+
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-charcoal" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col gap-4">
+            <a href="/" class="text-sm font-medium text-charcoal hover:text-hxa-green">Home</a>
+            <a href="/leadership" class="text-sm font-medium text-charcoal hover:text-hxa-green">Leadership</a>
+            <a href="/events" class="text-sm font-medium text-charcoal hover:text-hxa-green">Events</a>
+            <a href="/resources" class="text-sm font-medium text-charcoal hover:text-hxa-green">Resources</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-charcoal text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-headline text-lg mb-4">HxA Macalester</h3>
+            <p class="text-gray-300 text-sm">
+              Part of the <a href="https://heterodoxacademy.org" target="_blank" rel="noopener" class="text-accent-green hover:text-white">Heterodox Academy</a> network.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-headline text-lg mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/leadership" class="text-gray-300 hover:text-white transition-colors">Leadership</a></li>
+              <li><a href="/events" class="text-gray-300 hover:text-white transition-colors">Events</a></li>
+              <li><a href="/resources" class="text-gray-300 hover:text-white transition-colors">Resources</a></li>
+              <li><a href="https://heterodoxacademy.org" target="_blank" rel="noopener" class="text-gray-300 hover:text-white transition-colors">HxA National</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-headline text-lg mb-4">Contact</h3>
+            <p class="text-gray-300 text-sm mb-2">
+              <a href="mailto:hxa@macalester.edu" class="hover:text-white transition-colors">hxa@macalester.edu</a>
+            </p>
+            <p class="text-gray-300 text-sm">
+              Macalester College<br />
+              1600 Grand Avenue<br />
+              Saint Paul, MN 55105
+            </p>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+          <p>&copy; {new Date().getFullYear()} HxA Macalester. Part of the <a href="https://heterodoxacademy.org" target="_blank" rel="noopener" class="text-accent-green hover:text-white">Heterodox Academy</a> network.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuBtn?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>

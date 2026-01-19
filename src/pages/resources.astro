@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout title="Resources">
+  <Hero title="Resources" />
+
+  <!-- FIRE Report Section - Prominent -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-light-green rounded-lg p-8 md:p-10">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p class="subheader mb-2">Campus Report</p>
+            <h2 class="font-headline text-2xl text-charcoal mb-3">Macalester Free Speech Rankings</h2>
+            <p class="text-gray-600 leading-relaxed">
+              Macalester ranks <strong class="text-charcoal">228th out of 257</strong> colleges in FIRE's 2026 College Free Speech Rankings. Strong administrative support, but campus climate has room for improvement.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <a
+              href="https://rankings.thefire.org/rank"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors"
+            >
+              View FIRE Report
+              <Icon name="external-link" class="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HxA Resources Section -->
+  <section class="py-16 md:py-20 bg-tan">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="subheader mb-2">From Heterodox Academy</p>
+        <h2 class="font-headline text-2xl text-charcoal">Resources</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Card
+          icon="book"
+          title="Extraordinary U"
+          description="The Heterodox Academy model for institutional neutrality on contested social and political issues."
+          link="https://heterodoxacademy.org/files/Extraordinary-U-The-Heterodox-Academy-Model-of-Statement-Neutrality.pdf"
+          linkText="Read the framework"
+        />
+        <Card
+          icon="target"
+          title="Campus Expression Survey"
+          description="Data on how students perceive the climate for expression on their campuses."
+          link="https://heterodoxacademy.org/campus-expression-survey/"
+          linkText="See the data"
+        />
+        <Card
+          icon="users"
+          title="HxA Community"
+          description="Join thousands of faculty, students, and administrators committed to open inquiry."
+          link="https://heterodoxacademy.org/community/"
+          linkText="Join the community"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading List Section - Simplified -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-headline text-2xl text-charcoal mb-8">Recommended Media</h2>
+
+      <ul class="space-y-4">
+        <li class="border-l-2 border-hxa-green pl-4 py-1">
+          <a href="/documents/harper-university-democracy-1899.pdf" target="_blank" rel="noopener" class="font-headline text-lg text-charcoal hover:text-hxa-green transition-colors">The University and Democracy (1899)</a>
+          <p class="text-sm text-gray-500">William Rainey Harper, President of The University of Chicago</p>
+        </li>
+        <li class="border-l-2 border-hxa-purple pl-4 py-1">
+          <a href="https://www.insidehighered.com/opinion/views/2024/02/13/its-time-reset-presidential-statements-opinion" target="_blank" rel="noopener" class="font-headline text-lg text-charcoal hover:text-hxa-green transition-colors">The Presidential Voice</a>
+          <p class="text-sm text-gray-500">Suzanne Rivera, President of Macalester College</p>
+        </li>
+        <li class="border-l-2 border-hxa-green pl-4 py-1">
+          <a href="https://www.insidehighered.com/opinion/views/2025/03/06/free-speech-matters-and-so-does-dei-opinion" target="_blank" rel="noopener" class="font-headline text-lg text-charcoal hover:text-hxa-green transition-colors">Free Speech Matters, and So Does DEI</a>
+          <p class="text-sm text-gray-500">Michael Roth, President of Wesleyan University</p>
+        </li>
+        <li class="border-l-2 border-hxa-purple pl-4 py-1">
+          <a href="https://www.youtube.com/watch?v=QT2rwEkGFM4" target="_blank" rel="noopener" class="font-headline text-lg text-charcoal hover:text-hxa-green transition-colors">Bodies Upon The Gears (Video)</a>
+          <p class="text-sm text-gray-500">Foundation for Individual Rights and Expression</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Faculty CTA -->
+  <section class="py-16 md:py-20 bg-charcoal text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl mb-4">For Faculty</h2>
+      <p class="text-gray-300 mb-8 leading-relaxed">
+        Interested in promoting viewpoint diversity in your classroom or research? Heterodox Academy offers resources specifically designed for faculty members.
+      </p>
+      <a href="https://heterodoxacademy.org/join/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors">
+        Join HxA as Faculty
+        <Icon name="external-link" class="w-4 h-4" />
+      </a>
+    </div>
+  </section>
+</Layout>
