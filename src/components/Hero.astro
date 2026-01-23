@@ -9,6 +9,7 @@ interface Props {
   ctaText?: string;
   ctaLink?: string;
   variant?: 'home' | 'page';
+  backgroundImage?: string;
 }
 
 const {
@@ -20,35 +21,43 @@ const {
   showCta = false,
   ctaText = "Get Involved",
   ctaLink = "#contact",
-  variant = 'page'
+  variant = 'page',
+  backgroundImage
 } = Astro.props;
 
 const isHome = variant === 'home';
+const hasBackground = isHome && backgroundImage;
 ---
 
-<section class={`relative ${isHome ? 'py-16 md:py-24' : 'py-4 md:py-5'} bg-white border-b border-gray-100`}>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section
+  class={`relative ${isHome ? 'py-16 md:py-24' : 'py-4 md:py-5'} ${hasBackground ? '' : 'bg-white'} border-b border-gray-100`}
+  style={hasBackground ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center;` : ''}
+>
+  {hasBackground && (
+    <div class="absolute inset-0 bg-black/50"></div>
+  )}
+  <div class={`relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center ${hasBackground ? 'text-white' : ''}`}>
     {tagline && (
-      <p class="subheader mb-4">{tagline}</p>
+      <p class="subheader mb-4" style={hasBackground ? 'color: rgba(255,255,255,0.9)' : ''}>{tagline}</p>
     )}
 
-    <h1 class={`font-headline font-bold text-charcoal ${isHome ? 'text-3xl md:text-4xl lg:text-5xl' : 'text-2xl md:text-3xl lg:text-4xl'} leading-tight mb-6`}>
+    <h1 class={`font-headline font-bold ${hasBackground ? 'text-white' : 'text-charcoal'} ${isHome ? 'text-3xl md:text-4xl lg:text-5xl' : 'text-2xl md:text-3xl lg:text-4xl'} leading-tight mb-6`}>
       {title}
     </h1>
 
     {subtitle && (
-      <p class={`text-gray-600 ${isHome ? 'text-lg' : 'text-base'} max-w-2xl mx-auto leading-relaxed`}>
+      <p class={`${hasBackground ? 'text-white/90' : 'text-gray-600'} ${isHome ? 'text-lg' : 'text-base'} max-w-2xl mx-auto leading-relaxed`}>
         {subtitle}
       </p>
     )}
 
     {quote && (
       <blockquote class="max-w-2xl mx-auto mt-8 text-left">
-        <p class="font-headline italic text-lg text-gray-600 leading-relaxed">
+        <p class={`font-headline italic text-lg ${hasBackground ? 'text-white/90' : 'text-gray-600'} leading-relaxed`}>
           "{quote}"
         </p>
         {quoteAuthor && (
-          <cite class="block mt-3 text-sm font-semibold text-charcoal not-italic">
+          <cite class="block mt-3 text-sm font-semibold not-italic" style={hasBackground ? 'color: white' : 'color: var(--color-charcoal)'}>
             — {quoteAuthor}
           </cite>
         )}

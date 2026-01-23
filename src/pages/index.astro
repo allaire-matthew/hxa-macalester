@@ -8,6 +8,7 @@ import Icon from '../components/Icon.astro';
 <Layout title="Home">
   <Hero
     variant="home"
+    backgroundImage="/images/campus-hero.jpg"
     tagline="Heterodox Academy Campus Community"
     title="Great Minds Don't Always Think Alike"
     subtitle="A student-faculty community at Macalester College promoting open inquiry, viewpoint diversity, and constructive disagreement."
@@ -66,12 +67,11 @@ import Icon from '../components/Icon.astro';
     </div>
   </section>
 
-  <!-- Context Section -->
+  <!-- Research Section -->
   <section class="py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-8 items-start">
         <div>
-          <p class="subheader mb-2">Campus Context</p>
           <h2 class="font-headline text-2xl text-charcoal mb-4">Free Speech at Macalester</h2>
           <p class="text-gray-600 leading-relaxed mb-4">
             Macalester ranks 228th out of 257 colleges in FIRE's 2026 College Free Speech Rankings. While the college has strong administrative support for free expression, there's work to be done on campus climate.
@@ -84,20 +84,25 @@ import Icon from '../components/Icon.astro';
             <Icon name="external-link" class="w-3.5 h-3.5" />
           </a>
         </div>
-        <div class="bg-light-green rounded-lg p-6">
-          <h3 class="font-headline text-lg text-charcoal mb-3">Why This Matters</h3>
+        <div class="bg-light-purple rounded-lg p-6">
+          <h3 class="font-headline text-lg text-charcoal mb-3">Attacks on Higher Ed</h3>
+          <p class="text-sm text-gray-600 mb-4">From <a href="https://heterodoxacademy.substack.com/p/attack-data-show-the-vibe-shift-has" target="_blank" rel="noopener" class="text-hxa-green hover:text-accent-green">HxA research</a> using FIRE data:</p>
           <ul class="space-y-3 text-sm text-gray-600">
             <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-green mt-2 flex-shrink-0"></span>
-              <span>Exposure to different viewpoints strengthens critical thinking</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
+              <span><strong>2020:</strong> 80% of student targeting came from the left</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-green mt-2 flex-shrink-0"></span>
-              <span>Learning to disagree productively is essential for democratic citizenship</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
+              <span><strong>2025:</strong> 83% now comes from the right</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-green mt-2 flex-shrink-0"></span>
-              <span>Academic inquiry requires freedom to question and challenge ideas</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
+              <span>Attacks peaked in 2021, declined through 2024, surging again in 2025</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
+              <span>Academic freedom is under threat from all sides</span>
             </li>
           </ul>
         </div>
