@@ -1,0 +1,334 @@
+---
+// Crisis Splash - Full-viewport interstitial with academic freedom statistics
+---
+
+<section id="crisis-splash" class="crisis-splash">
+  <div class="paper-texture"></div>
+  <div class="crisis-content">
+    <p class="crisis-tagline">Academic Freedom Under Attack</p>
+
+    <div class="stat-container">
+      <span class="stat-number" id="stat-number">63%</span>
+      <p class="stat-context" id="stat-context">of students are afraid to speak on campus</p>
+    </div>
+
+    <div class="stat-nav">
+      <button class="stat-dot active" data-index="0" aria-label="Stat 1"></button>
+      <button class="stat-dot" data-index="1" aria-label="Stat 2"></button>
+      <button class="stat-dot" data-index="2" aria-label="Stat 3"></button>
+    </div>
+
+    <p class="stat-source" id="stat-source">Source: <a href="https://www.thefire.org/research-learn/2024-college-free-speech-rankings" target="_blank" rel="noopener">FIRE</a></p>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-arrow">↓</span>
+  </div>
+</section>
+
+<style>
+  .crisis-splash {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    position: relative;
+    padding: 2rem;
+    scroll-snap-align: start;
+    overflow: hidden;
+  }
+
+  .paper-texture {
+    position: absolute;
+    inset: 0;
+    background:
+      /* Crumpled paper effect with overlapping radial gradients */
+      radial-gradient(ellipse at 20% 30%, rgba(80, 45, 137, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(2, 132, 69, 0.1) 0%, transparent 40%),
+      radial-gradient(ellipse at 60% 80%, rgba(80, 45, 137, 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 10% 70%, rgba(50, 50, 50, 0.8) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 60%, rgba(40, 40, 40, 0.7) 0%, transparent 55%),
+      radial-gradient(ellipse at 40% 50%, rgba(60, 60, 60, 0.5) 0%, transparent 60%),
+      /* Paper grain noise simulation */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.01) 2px,
+        rgba(255, 255, 255, 0.01) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.01) 2px,
+        rgba(255, 255, 255, 0.01) 4px
+      ),
+      /* Base gradient */
+      linear-gradient(165deg, #1a1a1a 0%, #242424 50%, #2a2035 100%);
+    opacity: 1;
+    /* Crumple shadows */
+    filter: contrast(1.1);
+  }
+
+  .paper-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      /* Fold lines */
+      linear-gradient(135deg, transparent 40%, rgba(0,0,0,0.15) 45%, transparent 50%),
+      linear-gradient(-135deg, transparent 60%, rgba(0,0,0,0.1) 65%, transparent 70%),
+      linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 35%, transparent 40%);
+  }
+
+  .crisis-content {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .crisis-tagline {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+  }
+
+  .stat-container {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stat-number {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(6rem, 22vw, 16rem);
+    font-weight: 400;
+    color: white;
+    line-height: 0.85;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .stat-context {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    letter-spacing: 0.01em;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .stat-nav {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .stat-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .stat-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .stat-dot.active {
+    background: #028445;
+    transform: scale(1.2);
+  }
+
+  .stat-source {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .stat-source a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .stat-source a:hover {
+    color: white;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: bounce 2s infinite;
+    z-index: 10;
+  }
+
+  .scroll-arrow {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .scroll-text {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  /* Fade animation for stats */
+  .stat-fade {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  const stats = [
+    {
+      number: "63%",
+      context: "of students are afraid to speak on campus",
+      source: "FIRE",
+      sourceUrl: "https://www.thefire.org/research-learn/2024-college-free-speech-rankings"
+    },
+    {
+      number: "216",
+      context: "American scholars targeted by governments in 2025",
+      source: "FIRE",
+      sourceUrl: "https://www.thefire.org/research-learn/scholars-under-fire"
+    },
+    {
+      number: "5.7",
+      context: "years before a college loses its president",
+      source: "ACE",
+      sourceUrl: "https://www.acenet.edu/Research-Insights/Pages/American-College-President-Study.aspx"
+    }
+  ];
+
+  let currentIndex = 0;
+  let autoAdvanceInterval: ReturnType<typeof setInterval> | null = null;
+
+  const numberEl = document.getElementById('stat-number');
+  const contextEl = document.getElementById('stat-context');
+  const sourceEl = document.getElementById('stat-source');
+  const dots = document.querySelectorAll('.stat-dot');
+
+  function updateStat(index: number, animate = true) {
+    const stat = stats[index];
+
+    if (animate) {
+      // Fade out
+      numberEl?.classList.add('stat-fade');
+      contextEl?.classList.add('stat-fade');
+
+      setTimeout(() => {
+        // Update content
+        if (numberEl) numberEl.textContent = stat.number;
+        if (contextEl) contextEl.textContent = stat.context;
+        if (sourceEl) {
+          sourceEl.innerHTML = `Source: <a href="${stat.sourceUrl}" target="_blank" rel="noopener">${stat.source}</a>`;
+        }
+
+        // Fade in
+        numberEl?.classList.remove('stat-fade');
+        contextEl?.classList.remove('stat-fade');
+      }, 250);
+    } else {
+      if (numberEl) numberEl.textContent = stat.number;
+      if (contextEl) contextEl.textContent = stat.context;
+      if (sourceEl) {
+        sourceEl.innerHTML = `Source: <a href="${stat.sourceUrl}" target="_blank" rel="noopener">${stat.source}</a>`;
+      }
+    }
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+
+    currentIndex = index;
+  }
+
+  function startAutoAdvance() {
+    if (autoAdvanceInterval) clearInterval(autoAdvanceInterval);
+    autoAdvanceInterval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % stats.length;
+      updateStat(nextIndex);
+    }, 3000);
+  }
+
+  function stopAutoAdvance() {
+    if (autoAdvanceInterval) {
+      clearInterval(autoAdvanceInterval);
+      autoAdvanceInterval = null;
+    }
+  }
+
+  // Click handlers for dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoAdvance();
+      updateStat(index);
+      startAutoAdvance();
+    });
+  });
+
+  // Intersection Observer to pause/resume when out of view
+  const splashEl = document.getElementById('crisis-splash');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startAutoAdvance();
+      } else {
+        stopAutoAdvance();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  if (splashEl) {
+    observer.observe(splashEl);
+  }
+
+  // Initial state
+  updateStat(0, false);
+</script>
