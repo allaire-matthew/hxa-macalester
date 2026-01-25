@@ -4,14 +4,9 @@
   "description": "Heterodox Academy Campus Community at Macalester College",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any"
-    },
-    {
-      "src": "/apple-touch-icon.svg",
-      "type": "image/svg+xml",
-      "sizes": "180x180"
+      "src": "/images/Macalester_HxA_Logo.png",
+      "type": "image/png",
+      "sizes": "500x500"
     }
   ],
   "theme_color": "#028445",
