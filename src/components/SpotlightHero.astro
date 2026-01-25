@@ -1,0 +1,151 @@
+---
+// SpotlightHero - Hero with dark overlay and cursor-following spotlight reveal
+interface Props {
+  backgroundImage: string;
+  tagline?: string;
+  title: string;
+  subtitle?: string;
+  quote?: string;
+  quoteAuthor?: string;
+}
+
+const { backgroundImage, tagline, title, subtitle, quote, quoteAuthor } = Astro.props;
+---
+
+<section id="spotlight-hero" class="spotlight-hero">
+  <!-- Darkened background image -->
+  <div class="image-layer image-dark" style={`background-image: url('${backgroundImage}')`}></div>
+
+  <!-- Purple tint layer -->
+  <div class="image-layer purple-tint"></div>
+
+  <!-- Content - positioned at top over grass -->
+  <div class="hero-content">
+    {tagline && <p class="hero-tagline">{tagline}</p>}
+    <h1 class="hero-title">{title}</h1>
+    {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+    {quote && (
+      <blockquote class="hero-quote">
+        <p>"{quote}"</p>
+        {quoteAuthor && <cite>— {quoteAuthor}</cite>}
+      </blockquote>
+    )}
+  </div>
+</section>
+
+<style>
+  .spotlight-hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  .image-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .image-dark {
+    z-index: 1;
+    filter: brightness(0.25);
+  }
+
+  .purple-tint {
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(80, 45, 137, 0.4) 0%,
+      rgba(80, 45, 137, 0.25) 40%,
+      rgba(80, 45, 137, 0.15) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 2rem;
+    padding-top: 4rem;
+    text-align: center;
+    color: white;
+    align-self: flex-start;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content {
+      padding-top: 6rem;
+      margin-top: 4rem;
+    }
+  }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-title {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.9),
+      0 4px 16px rgba(0, 0, 0, 0.7),
+      0 8px 40px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(80, 45, 137, 0.4);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-quote {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    padding-left: 1.5rem;
+  }
+
+  .hero-quote p {
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-quote cite {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+</style>
+

@@ -1,25 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 50" fill="none">
-  <defs>
-    <linearGradient id="speechGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#028445"/>
-      <stop offset="100%" style="stop-color:#502D89"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 40" fill="none">
+  <!-- Purple speech bubble (the 'a' in academy) -->
+  <ellipse cx="130" cy="14" rx="8" ry="8" fill="#773DBD"/>
+  <path d="M125 18 L128 24 L131 18" fill="#773DBD"/>
 
-  <!-- Speech bubble logomark -->
-  <path d="M4 4h32v24l-8 8v-8H4V4z" fill="url(#speechGradient)"/>
-
-  <!-- heterodox academy text -->
-  <g fill="#242424" font-family="system-ui, -apple-system, sans-serif">
-    <!-- heterodox -->
-    <text x="48" y="18" font-size="14" font-weight="500" letter-spacing="-0.5">heterodo</text>
-    <text x="118" y="18" font-size="14" font-weight="500" fill="#028445">x</text>
-
-    <!-- academy with speech bubble 'a' -->
-    <text x="132" y="18" font-size="14" font-weight="500" fill="#502D89">a</text>
-    <text x="142" y="18" font-size="14" font-weight="500">cademy</text>
-  </g>
+  <!-- heterodox academy as single text elements -->
+  <text x="4" y="20" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#242424">heterodo<tspan fill="#00AB64">x</tspan></text>
+  <text x="142" y="20" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#242424">cademy</text>
 
   <!-- Campus Community Network -->
-  <text x="48" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#242424" letter-spacing="0.5">Campus Community Network</text>
+  <text x="4" y="35" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#242424" letter-spacing="0.3">Campus Community Network</text>
 </svg>
