@@ -3,12 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import Icon from '../components/Icon.astro';
+import CrisisSplash from '../components/CrisisSplash.astro';
 ---
 
 <Layout title="Home">
+  <CrisisSplash />
+
   <Hero
     variant="home"
-    backgroundImage="/images/campus-hero.jpg"
     tagline="Heterodox Academy Campus Community"
     title="Great Minds Don't Always Think Alike"
     subtitle="A student-faculty community at Macalester College promoting open inquiry, viewpoint diversity, and constructive disagreement."
@@ -70,42 +72,18 @@ import Icon from '../components/Icon.astro';
   <!-- Research Section -->
   <section class="py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8 items-start">
-        <div>
-          <h2 class="font-headline text-2xl text-charcoal mb-4">Free Speech at Macalester</h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Macalester ranks 228th out of 257 colleges in FIRE's 2026 College Free Speech Rankings. While the college has strong administrative support for free expression, there's work to be done on campus climate.
-          </p>
-          <p class="text-gray-600 leading-relaxed">
-            Our chapter works to help students understand and exercise their rights to free expression while building a culture where diverse viewpoints are welcomed and debated respectfully.
-          </p>
-          <a href="https://rankings.thefire.org/rank" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-medium text-hxa-green hover:text-accent-green mt-4 transition-colors">
-            View FIRE Rankings
-            <Icon name="external-link" class="w-3.5 h-3.5" />
-          </a>
-        </div>
-        <div class="bg-light-purple rounded-lg p-6">
-          <h3 class="font-headline text-lg text-charcoal mb-3">Attacks on Higher Ed</h3>
-          <p class="text-sm text-gray-600 mb-4">From <a href="https://heterodoxacademy.substack.com/p/attack-data-show-the-vibe-shift-has" target="_blank" rel="noopener" class="text-hxa-green hover:text-accent-green">HxA research</a> using FIRE data:</p>
-          <ul class="space-y-3 text-sm text-gray-600">
-            <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
-              <span><strong>2020:</strong> 80% of student targeting came from the left</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
-              <span><strong>2025:</strong> 83% now comes from the right</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
-              <span>Attacks peaked in 2021, declined through 2024, surging again in 2025</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-hxa-purple mt-2 flex-shrink-0"></span>
-              <span>Academic freedom is under threat from all sides</span>
-            </li>
-          </ul>
-        </div>
+      <div class="max-w-2xl">
+        <h2 class="font-headline text-2xl text-charcoal mb-4">Free Speech at Macalester</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Macalester ranks 228th out of 257 colleges in FIRE's 2026 College Free Speech Rankings. While the college has strong administrative support for free expression, there's work to be done on campus climate.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Our chapter works to help students understand and exercise their rights to free expression while building a culture where diverse viewpoints are welcomed and debated respectfully.
+        </p>
+        <a href="https://rankings.thefire.org/rank" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-medium text-hxa-green hover:text-accent-green mt-4 transition-colors">
+          View FIRE Rankings
+          <Icon name="external-link" class="w-3.5 h-3.5" />
+        </a>
       </div>
     </div>
   </section>

@@ -1,0 +1,21 @@
+{
+  "name": "HxA Macalester",
+  "short_name": "HxA Mac",
+  "description": "Heterodox Academy Campus Community at Macalester College",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180"
+    }
+  ],
+  "theme_color": "#028445",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

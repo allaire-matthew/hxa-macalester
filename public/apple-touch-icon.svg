@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="hxa-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#028445"/>
+      <stop offset="100%" stop-color="#502D89"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="url(#hxa-gradient)"/>
+  <text x="90" y="125" font-family="Georgia, serif" font-size="100" font-weight="bold" fill="white" text-anchor="middle">H</text>
+</svg>

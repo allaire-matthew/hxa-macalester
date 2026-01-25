@@ -30,11 +30,11 @@ const hasBackground = isHome && backgroundImage;
 ---
 
 <section
-  class={`relative ${isHome ? 'py-16 md:py-24' : 'py-4 md:py-5'} ${hasBackground ? '' : 'bg-white'} border-b border-gray-100`}
+  class={`relative ${isHome ? 'py-16 md:py-24' : 'py-4 md:py-5'} ${hasBackground ? '' : isHome ? 'bg-gradient-to-b from-gray-50 to-white' : 'bg-white'} border-b border-gray-100`}
   style={hasBackground ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center;` : ''}
 >
   {hasBackground && (
-    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
   )}
   <div class={`relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center ${hasBackground ? 'text-white' : ''}`}>
     {tagline && (
