@@ -8,43 +8,17 @@ import Icon from '../components/Icon.astro';
 <Layout title="Resources">
   <Hero title="Resources" />
 
-  <!-- FIRE Report Section - Prominent -->
+  <!-- Combined Resources Section -->
   <section class="py-16 md:py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-light-green rounded-lg p-8 md:p-10">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-            <p class="subheader mb-2">Campus Report</p>
-            <h2 class="font-headline text-2xl text-charcoal mb-3">Macalester Free Speech Rankings</h2>
-            <p class="text-gray-600 leading-relaxed">
-              Macalester ranks <strong class="text-charcoal">228th out of 257</strong> colleges in FIRE's 2026 College Free Speech Rankings. Strong administrative support, but campus climate has room for improvement.
-            </p>
-          </div>
-          <div class="flex-shrink-0">
-            <a
-              href="https://rankings.thefire.org/rank"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors"
-            >
-              View FIRE Report
-              <Icon name="external-link" class="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HxA Resources Section -->
-  <section class="py-16 md:py-20 bg-tan">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <p class="subheader mb-2">From Heterodox Academy</p>
-        <h2 class="font-headline text-2xl text-charcoal">Resources</h2>
-      </div>
-
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Card
+          icon="chart"
+          title="Macalester Free Speech Rankings"
+          description="Macalester ranks 228th out of 257 colleges in FIRE's 2026 College Free Speech Rankings. Strong administrative support, but campus climate has room for improvement."
+          link="https://rankings.thefire.org/rank"
+          linkText="View FIRE Report"
+        />
         <Card
           icon="book"
           title="Extraordinary U"
@@ -84,8 +58,8 @@ import Icon from '../components/Icon.astro';
     </div>
   </section>
 
-  <!-- Reading List Section - Simplified -->
-  <section class="py-16 md:py-20">
+  <!-- Reading List Section -->
+  <section class="py-16 md:py-20 bg-tan">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-headline text-2xl text-charcoal mb-8">Recommended Media</h2>
 
