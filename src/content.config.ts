@@ -20,9 +20,11 @@ const events = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    time: z.string().optional(),
     location: z.string().optional(),
-    description: z.string().optional(),
-    rsvpLink: z.string().url().optional(),
+    description: z.string(),
+    link: z.string().url().optional(),
+    isPast: z.boolean().default(false),
   }),
 });
 

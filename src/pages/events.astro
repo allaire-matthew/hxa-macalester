@@ -1,27 +1,79 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
+import EventCard from '../components/EventCard.astro';
+
+const allEvents = await getCollection('events');
+const now = new Date();
+
+const upcomingEvents = allEvents
+  .filter(e => !e.data.isPast && new Date(e.data.date) >= now)
+  .sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime());
+
+const pastEvents = allEvents
+  .filter(e => e.data.isPast || new Date(e.data.date) < now)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <Layout title="Events">
   <Hero title="Events" />
 
-  <!-- Events Section -->
+  <!-- Upcoming Events Section -->
   <section class="py-16 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-light-green rounded-lg p-8 text-center">
-        <h2 class="font-headline text-2xl text-charcoal mb-4">Events Coming Soon</h2>
-        <p class="text-gray-600 mb-6 leading-relaxed">
-          We're planning dialogue sessions, speaker events, and discussions for the upcoming semester. Check back for announcements or contact us to stay updated.
-        </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSczgfxgxP1ISbm2Pe1qRfyv5sepwnyQaYAHUg4tnc2hlYMwyA/viewform" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors">
-          <Icon name="users" class="w-4 h-4" />
-          Get Notified
-        </a>
-      </div>
+      <h2 class="font-headline text-2xl text-charcoal mb-8">Upcoming Events</h2>
+
+      {upcomingEvents.length > 0 ? (
+        <div class="space-y-6">
+          {upcomingEvents.map((event) => (
+            <EventCard
+              title={event.data.title}
+              date={event.data.date}
+              time={event.data.time}
+              location={event.data.location}
+              description={event.data.description}
+              link={event.data.link}
+              isPast={false}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="bg-light-green rounded-lg p-8 text-center">
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            No upcoming events at the moment. Check back soon or contact us to stay updated.
+          </p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSczgfxgxP1ISbm2Pe1qRfyv5sepwnyQaYAHUg4tnc2hlYMwyA/viewform" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-hxa-green text-white px-5 py-2.5 rounded-md font-medium hover:bg-accent-green transition-colors">
+            <Icon name="users" class="w-4 h-4" />
+            Get Notified
+          </a>
+        </div>
+      )}
     </div>
   </section>
+
+  <!-- Past Events Section -->
+  {pastEvents.length > 0 && (
+    <section class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-headline text-2xl text-charcoal mb-8">Past Events</h2>
+        <div class="space-y-4">
+          {pastEvents.map((event) => (
+            <EventCard
+              title={event.data.title}
+              date={event.data.date}
+              time={event.data.time}
+              location={event.data.location}
+              description={event.data.description}
+              link={event.data.link}
+              isPast={true}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Propose an Event Section -->
   <section class="py-16 md:py-20 bg-tan">

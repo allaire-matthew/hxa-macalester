@@ -1,0 +1,74 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  time?: string;
+  location?: string;
+  description: string;
+  link?: string;
+  isPast?: boolean;
+}
+
+const { title, date, time, location, description, link, isPast = false } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<div class={`bg-white border border-gray-200 rounded-lg p-6 transition-all duration-200 hover:border-hxa-green/40 hover:shadow-md ${isPast ? 'opacity-70' : ''}`}>
+  <div class="flex items-start gap-4">
+    <div class="w-12 h-12 rounded-md flex items-center justify-center bg-light-green flex-shrink-0">
+      <Icon name="calendar" class="w-6 h-6 text-hxa-green" />
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <h3 class="font-headline font-bold text-charcoal text-lg mb-2">
+        {title}
+        {isPast && <span class="text-sm font-normal text-gray-500 ml-2">(Past Event)</span>}
+      </h3>
+
+      <div class="space-y-1.5 mb-3">
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <Icon name="calendar" class="w-4 h-4 text-hxa-green" />
+          <span>{formattedDate}</span>
+        </div>
+
+        {time && (
+          <div class="flex items-center gap-2 text-sm text-gray-600">
+            <Icon name="clock" class="w-4 h-4 text-hxa-green" />
+            <span>{time}</span>
+          </div>
+        )}
+
+        {location && (
+          <div class="flex items-center gap-2 text-sm text-gray-600">
+            <Icon name="map-pin" class="w-4 h-4 text-hxa-green" />
+            <span>{location}</span>
+          </div>
+        )}
+      </div>
+
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">
+        {description}
+      </p>
+
+      {link && !isPast && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-1.5 text-sm font-medium text-hxa-green hover:text-accent-green transition-colors"
+        >
+          More Info
+          <Icon name="external-link" class="w-3.5 h-3.5" />
+        </a>
+      )}
+    </div>
+  </div>
+</div>
